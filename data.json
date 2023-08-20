@@ -2489,7 +2489,7 @@
         "state": "Maharashtra",
         "pinCode": "432143"
       },
-      "status": "pending",
+      "status": "delivered",
       "id": 1
     },
     {
@@ -2543,7 +2543,7 @@
         "state": "Uttar Pradesh",
         "pinCode": "639276"
       },
-      "status": "pending",
+      "status": "cancelled",
       "id": 2
     },
     {
@@ -2596,7 +2596,7 @@
         "state": "Uttar Pradesh",
         "pinCode": "639276"
       },
-      "status": "pending",
+      "status": "dispatched",
       "id": 3
     },
     {
@@ -2845,6 +2845,61 @@
       },
       "status": "pending",
       "id": 7
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone 9",
+          "description": "An apple mobile which is nothing like apple",
+          "price": 549,
+          "discountPercentage": 12.96,
+          "rating": 4.89,
+          "stock": 94,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/1/1.jpg",
+            "https://i.dummyjson.com/data/products/1/2.jpg",
+            "https://i.dummyjson.com/data/products/1/3.jpg",
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 2,
+          "id": 2
+        }
+      ],
+      "totalAmount": 478,
+      "totalItems": 1,
+      "user": {
+        "email": "gt@gmail.com",
+        "password": "gg",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Raj Yadav",
+            "email": "Raj123@gmail.com",
+            "phone": "4396589375",
+            "street": "Near TajMahal Hotel",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pinCode": "432142"
+          }
+        ],
+        "id": 2
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Raj Yadav",
+        "email": "Raj123@gmail.com",
+        "phone": "4396589375",
+        "street": "Near TajMahal Hotel",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "432142"
+      },
+      "status": "pending",
+      "id": 8
     }
   ]
 }
