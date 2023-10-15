@@ -8,6 +8,7 @@ import {
   selectTotalItems,
   selectBrands,
   selectCategories,
+  selectProductListStatus,
 } from "../productSlice";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -18,22 +19,17 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  StarIcon,
-} from "@heroicons/react/20/solid";
+import { StarIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
 import Pagination from "../../common/Pagination";
+import { Grid } from "react-loader-spinner";
 
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
   { name: "Price: Low to High", sort: "price", order: "asc", current: false },
   { name: "Price: High to Low", sort: "price", order: "desc", current: false },
 ];
-
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -46,6 +42,7 @@ export default function ProductList() {
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
   const totalItems = useSelector(selectTotalItems);
+  const status = useSelector(selectProductListStatus);
   const filters = [
     {
       id: "category",
@@ -100,19 +97,20 @@ export default function ProductList() {
     //TODO : Server will filter deleted products
   }, [dispatch, filter, sort, page]);
 
-  useEffect(()=>{
-    setPage(1)
-  },[totalItems,sort]);
+  useEffect(() => {
+    setPage(1);
+  }, [totalItems, sort]);
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
-  },[dispatch]);
+  }, [dispatch]);
 
   return (
     <div>
       <div>
         <div className="bg-white">
+         
           <div>
             <MobileFilter
               handleFilter={handleFilter}
@@ -201,11 +199,13 @@ export default function ProductList() {
 
                 <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                   {/* Filters */}
-                  <DesktopFilter handleFilter={handleFilter} filters={filters} > </DesktopFilter>
+                  <DesktopFilter handleFilter={handleFilter} filters={filters}>
+                    {" "}
+                  </DesktopFilter>
 
                   {/* Product grid */}
                   <div className="lg:col-span-3">
-                    <ProductGrid products={products}></ProductGrid>
+                    <ProductGrid products={products} status={status}></ProductGrid>
                   </div>
                 </div>
               </section>
@@ -402,13 +402,21 @@ function DesktopFilter({ handleFilter, filters }) {
   );
 }
 
-
-
-function ProductGrid({ products }) {
+function ProductGrid({ products, status }) {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+        {status ==='loading'?(<Grid
+            height="80"
+            width="80"
+            color="rgb(79, 70, 229)"
+            ariaLabel="grid-loading"
+            radius="12.5"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />): null}
           {products.map((product) => (
             <Link to={`/product-detail/${product.id}`} key={product.id}>
               <div className="group relative border-solid border-2 p-2 border-gry-200">
@@ -434,8 +442,7 @@ function ProductGrid({ products }) {
                   </div>
                   <div>
                     <p className="text-sm block font-medium text-gray-900">
-                      $
-                      {discountedPrice(product)}
+                      ${discountedPrice(product)}
                     </p>
                     <p className="text-sm block line-through font-medium text-gray-400">
                       ${product.price}
@@ -443,10 +450,14 @@ function ProductGrid({ products }) {
                   </div>
                 </div>
                 {product.deleted && (
-                  <div><p className ="text-sm text-red-400">product deleted</p></div>
+                  <div>
+                    <p className="text-sm text-red-400">product deleted</p>
+                  </div>
                 )}
-                {product.stock<=0  && (
-                  <div><p className ="text-sm text-red-400">out of stock</p></div>
+                {product.stock <= 0 && (
+                  <div>
+                    <p className="text-sm text-red-400">out of stock</p>
+                  </div>
                 )}
               </div>
             </Link>

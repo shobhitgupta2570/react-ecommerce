@@ -6,7 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { selectLoggedInUser } from "../../auth/authSlice";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
+import { selectProductListStatus } from "../productSlice";
 import { discountedPrice } from "../../../app/constants";
+import { useAlert } from "react-alert";
+import { Grid } from "react-loader-spinner";
 
 // TODO : In server data we will add colours, sizes, highlights.
 
@@ -45,15 +48,23 @@ export default function ProductDetail() {
   const product = useSelector(selectProductById);
   const dispatch = useDispatch();
   const params = useParams();
+  const alert = useAlert();
+  const status = useSelector(selectProductListStatus);
+  
 
   const handleCart = (e) => {
     e.preventDefault();
-    if (items.findIndex((item) => item.productId === product.id) < 0) {
-      const newItem = { ...product, productId:product.id, quantity: 1, user: user.id };
-      delete newItem["id"];
+    if (items.findIndex((item) => item.product.id === product.id) < 0) {
+      const newItem = {
+        product: product.id,
+        quantity: 1,
+        user: user.id,
+      };
       dispatch(addToCartAsync(newItem));
-    }else {
-      console.log("already added");
+      // TODO: it will be based on server response of backend
+      alert.success('Item added to Cart');
+    } else {
+      alert.error("Item Already Added");
     }
   };
 
@@ -63,6 +74,16 @@ export default function ProductDetail() {
 
   return (
     <div className="bg-white">
+      {status ==='loading'?(<Grid
+            height="80"
+            width="80"
+            color="rgb(79, 70, 229)"
+            ariaLabel="grid-loading"
+            radius="12.5"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />): null}
       {product && (
         <div className="pt-6">
           <nav aria-label="Breadcrumb">

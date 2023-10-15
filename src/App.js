@@ -26,6 +26,13 @@ import AdminHome from './pages/AdminHome';
 import AdminProductDetailPage from './pages/AdminProductDetailPage';
 import AdminProductFormPage from './pages/AdminProductFormPage';
 import AdminOrderspage from './pages/AdminOrdersPage';
+import { positions, Provider } from "react-alert";
+import AlertTemplate from "react-alert-template-basic";
+
+const options = {
+  timeout: 5000,
+  position: positions.BOTTOM_LEFT
+};
 
 const router = createBrowserRouter([
   {
@@ -74,15 +81,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/order-success/:id",
-    element: <OrderSucessPage></OrderSucessPage>,
+    element: (
+      <Protected>
+        <OrderSucessPage></OrderSucessPage>{' '}
+      </Protected>
+    ),
   },
   {
     path: "/orders",
-    element: <UsersOrderPage></UsersOrderPage>,
+    element: (
+      <Protected>
+        <UsersOrderPage></UsersOrderPage>{' '}
+      </Protected>
+    ),
   },
   {
     path: "/profile",
-    element: <UsersProfilePage></UsersProfilePage>,
+    element: (
+      <Protected>
+        <UsersProfilePage></UsersProfilePage>{' '}
+      </Protected>
+    ),
   },
   {
     path: "/logout",
@@ -112,7 +131,9 @@ function App() {
   
   return (
     <div className="App">
+      <Provider template={AlertTemplate} {...options}>
       <RouterProvider router={router} />
+      </Provider>
       {/* Link must be inside the Provider */}
     </div>
   );

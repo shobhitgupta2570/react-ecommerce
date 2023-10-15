@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {useForm} from "react-hook-form";
 
@@ -7,10 +6,8 @@ import { Link, Navigate } from 'react-router-dom';
 
 export default function Signup() {
   const dispatch = useDispatch();
-  const { register, handleSubmit, watch, formState: {errors} } = useForm();
+  const { register, handleSubmit, formState: {errors} } = useForm();
   const user = useSelector(selectLoggedInUser);
-
-  console.log(errors)
   
   return (
     <>

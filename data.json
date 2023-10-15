@@ -138,7 +138,6 @@
         "https://i.dummyjson.com/data/products/8/1.jpg",
         "https://i.dummyjson.com/data/products/8/2.jpg",
         "https://i.dummyjson.com/data/products/8/3.jpg",
-        "https://i.dummyjson.com/data/products/8/4.jpg",
         "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
       ]
     },
@@ -1854,7 +1853,8 @@
         "https://i.dummyjson.com/data/products/1/3.jpg"
       ],
       "rating": 0,
-      "id": 101
+      "id": 101,
+      "deleted": true
     },
     {
       "title": "pokemon",
@@ -2396,11 +2396,20 @@
         {
           "name": "Raj Yadav",
           "email": "Raj123@gmail.com",
-          "phone": "4396589375",
-          "street": "Near TajMahal Hotel",
           "city": "Mumbai",
           "state": "Maharashtra",
-          "pinCode": "432142"
+          "pinCode": "432143",
+          "phone": "4396589375",
+          "street": "Near TajMahal Hotel"
+        },
+        {
+          "name": "Rahul Yadav",
+          "email": "rahulyadav@gmail.com",
+          "city": "Lucknow",
+          "state": "Uttar Pradesh",
+          "pinCode": "242001",
+          "phone": "7890564586",
+          "street": "ghantahar"
         }
       ],
       "id": 2
@@ -2471,7 +2480,30 @@
       "id": 7
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "title": "Pubg Printed Graphic T-Shirt",
+      "description": "Product Description Features: 100% Ultra soft Polyester Jersey. Vibrant & colorful printing on front. Feels soft as cotton without ever cracking",
+      "price": 46,
+      "discountPercentage": 16.44,
+      "rating": 4.62,
+      "stock": 136,
+      "brand": "The Warehouse",
+      "category": "mens-shirts",
+      "thumbnail": "https://i.dummyjson.com/data/products/54/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/54/1.jpg",
+        "https://i.dummyjson.com/data/products/54/2.jpg",
+        "https://i.dummyjson.com/data/products/54/3.jpg",
+        "https://i.dummyjson.com/data/products/54/4.jpg",
+        "https://i.dummyjson.com/data/products/54/thumbnail.jpg"
+      ],
+      "productId": 54,
+      "quantity": 1,
+      "user": 2,
+      "id": 1
+    }
+  ],
   "orders": [
     {
       "items": [
@@ -2510,15 +2542,6 @@
             "city": "Mumbai",
             "state": "Maharashtra",
             "pinCode": "432143"
-          },
-          {
-            "name": "fyy",
-            "email": "f@gmail.com",
-            "phone": "04396589376",
-            "street": "fegg",
-            "city": "refet",
-            "state": "t4tgg",
-            "pinCode": "567854"
           }
         ],
         "id": 2
@@ -2646,70 +2669,6 @@
     {
       "items": [
         {
-          "title": "Bluetooth Aux",
-          "description": "Bluetooth Aux Bluetooth Car Aux Car Bluetooth Transmitter Aux Audio Receiver Handfree Car Bluetooth Music Receiver Universal 3.5mm Streaming A2DP Wireless Auto AUX Audio Adapter With Mic For Phone MP3",
-          "price": 25,
-          "discountPercentage": 10.56,
-          "rating": 4.57,
-          "stock": 22,
-          "brand": "Car Aux",
-          "category": "automotive",
-          "thumbnail": "https://i.dummyjson.com/data/products/86/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/86/1.jpg",
-            "https://i.dummyjson.com/data/products/86/2.webp",
-            "https://i.dummyjson.com/data/products/86/3.jpg",
-            "https://i.dummyjson.com/data/products/86/4.jpg",
-            "https://i.dummyjson.com/data/products/86/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 2,
-          "id": 1
-        }
-      ],
-      "totalAmount": 25,
-      "totalItems": 1,
-      "user": {
-        "email": "gt@gmail.com",
-        "password": "gg",
-        "addresses": [
-          {
-            "name": "Raj Yadav",
-            "email": "Raj123@gmail.com",
-            "phone": "4396589376",
-            "street": "Near TajMahal Hotel",
-            "city": "Mumbai",
-            "state": "Maharashtra",
-            "pinCode": "432143"
-          },
-          {
-            "name": "fyy",
-            "email": "f@gmail.com",
-            "phone": "04396589376",
-            "street": "fegg",
-            "city": "refet",
-            "state": "t4tgg",
-            "pinCode": "567854"
-          }
-        ],
-        "id": 2
-      },
-      "paymentMethod": "card",
-      "selectedAddress": {
-        "name": "fyy",
-        "email": "f@gmail.com",
-        "phone": "04396589376",
-        "street": "fegg",
-        "city": "refet",
-        "state": "t4tgg",
-        "pinCode": "567854"
-      },
-      "status": "pending",
-      "id": 4
-    },
-    {
-      "items": [
-        {
           "title": "HOT SALE IN EUROPE electric racing motorcycle",
           "description": "HOT SALE IN EUROPE electric racing motorcycle electric motorcycle for sale adult electric motorcycles",
           "price": 920,
@@ -2744,15 +2703,6 @@
             "city": "Mumbai",
             "state": "Maharashtra",
             "pinCode": "432143"
-          },
-          {
-            "name": "fyy",
-            "email": "f@gmail.com",
-            "phone": "04396589376",
-            "street": "fegg",
-            "city": "refet",
-            "state": "t4tgg",
-            "pinCode": "567854"
           }
         ],
         "id": 2
@@ -2808,15 +2758,6 @@
             "city": "Mumbai",
             "state": "Maharashtra",
             "pinCode": "432143"
-          },
-          {
-            "name": "fyy",
-            "email": "f@gmail.com",
-            "phone": "04396589376",
-            "street": "fegg",
-            "city": "refet",
-            "state": "t4tgg",
-            "pinCode": "567854"
           }
         ],
         "id": 2
@@ -3134,6 +3075,71 @@
       },
       "status": "pending",
       "id": 11
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone 9",
+          "description": "An apple mobile which is nothing like apple",
+          "price": 549,
+          "discountPercentage": 12.96,
+          "rating": 4.89,
+          "stock": 94,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/1/1.jpg",
+            "https://i.dummyjson.com/data/products/1/2.jpg",
+            "https://i.dummyjson.com/data/products/1/3.jpg",
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+          ],
+          "productId": 1,
+          "quantity": 1,
+          "user": 2,
+          "id": 1
+        }
+      ],
+      "totalAmount": 478,
+      "totalItems": 1,
+      "user": {
+        "email": "gt@gmail.com",
+        "password": "gg",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Raj Yadav",
+            "email": "Raj123@gmail.com",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pinCode": "432142",
+            "phone": "4396589375",
+            "street": "Near TajMahal Hotel"
+          },
+          {
+            "name": "Rahul Yadav",
+            "email": "rahulyadav@gmail.com",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pinCode": "242001",
+            "phone": "7890564586",
+            "street": "ghantahar"
+          }
+        ],
+        "id": 2
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Rahul Yadav",
+        "email": "rahulyadav@gmail.com",
+        "city": "Lucknow",
+        "state": "Uttar Pradesh",
+        "pinCode": "242001",
+        "phone": "7890564586",
+        "street": "ghantahar"
+      },
+      "status": "pending",
+      "id": 12
     }
   ]
 }

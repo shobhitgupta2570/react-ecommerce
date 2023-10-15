@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
-import { checkUserAsync , createUserAsync, selectError, selectLoggedInUser } from '../authSlice';
+import { checkUserAsync , selectError, selectLoggedInUser } from '../authSlice';
 import { useForm } from 'react-hook-form';
 
 export default function Login() {
@@ -10,10 +9,6 @@ export default function Login() {
   const error = useSelector(selectError);
   const { register, handleSubmit, formState: {errors} } = useForm();
   const user = useSelector(selectLoggedInUser);
-  
-
-  console.log(errors);
- 
   
   return (
       <>
