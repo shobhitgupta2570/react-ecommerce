@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
-import { checkUserAsync , selectError, selectLoggedInUser } from '../authSlice';
+import { loginUserAsync , selectError, selectLoggedInUser } from '../authSlice';
 import { useForm } from 'react-hook-form';
 
 export default function Login() {
@@ -29,7 +29,7 @@ export default function Login() {
           <form noValidate
           onSubmit={handleSubmit((data)=>{
             dispatch(
-              checkUserAsync({email: data.email, password: data.password })
+              loginUserAsync({email: data.email, password: data.password })
               );
           })}
            className="space-y-6" action="#" method="POST">
@@ -71,7 +71,7 @@ export default function Login() {
                 />
                 {errors.password && (<p className='text-red-500'>{errors.password.message}</p>)}
               </div>
-              {error && (<p className='text-red-500'>{error.message}</p>)}
+              {error && (<p className='text-red-500'>{error || error.message}</p>)}
             </div>
 
             <div>
