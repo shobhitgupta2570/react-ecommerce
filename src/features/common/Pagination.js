@@ -27,8 +27,8 @@ export default function Pagination({ page, handlePage, totalItems}) {
               <span className="font-medium">
                 {(page - 1) * ITEMS_PER_PAGE + 1}
               </span>{" "}
-              to
-              <span className="font-medium">{page * ITEMS_PER_PAGE > totalItems ? totalItems : page * ITEMS_PER_PAGE > totalItems}</span> of{" "}
+              to{" "}
+              <span className="font-medium">{page * ITEMS_PER_PAGE > totalItems ? totalItems : page * ITEMS_PER_PAGE}</span> of{" "}
               <span className="font-medium">{totalItems}</span> results
             </p>
           </div>
